@@ -1,0 +1,26 @@
+{
+  "name": "landing-page-flask",
+  "version": "1.0.0",
+  "description": "Responsive landing page built with Flask and Tailwind CSS to learn modern backend architecture and utility-first styling.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elieserhernanielieser-gif/landing-page-flask.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/elieserhernanielieser-gif/landing-page-flask/issues"
+  },
+  "homepage": "https://github.com/elieserhernanielieser-gif/landing-page-flask#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {}
+}
