@@ -1,0 +1,19 @@
+<section class="bg-gray-900/40 border-y border-gray-800/80 py-12 my-8">
+    <div class="max-w-6xl mx-auto px-8">
+        
+        <!-- Grelha de Números: 2 colunas em mobile, 4 colunas em desktop -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-gray-800">
+            {% for stat in stats %}
+            <div class="px-4">
+                <p class="text-3xl sm:text-4xl font-black text-green-500 tracking-tight mb-1">
+                    {{ stat.value }}
+                </p>
+                <p class="text-xs sm:text-sm text-gray-400 font-semibold uppercase tracking-wider">
+                    {{ stat.label }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>

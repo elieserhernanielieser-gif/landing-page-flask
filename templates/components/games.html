@@ -1,0 +1,66 @@
+<section id="ao-vivo" class="max-w-6xl mx-auto px-8 py-16 bg-black">
+    
+    <!-- Cabeçalho da Secção -->
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h2 class="text-2xl font-black text-white tracking-tight">JOGOS EM DESTAQUE</h2>
+            <p class="text-gray-400 text-sm">As melhores cotações e partidas ao vivo do dia</p>
+        </div>
+        <a href="#" class="text-green-500 font-bold text-sm hover:underline flex items-center gap-1">
+            Ver todos <span>&rarr;</span>
+        </a>
+    </div>
+
+    <!-- Grelha de Cards (Grid Responsivo: 1 col no mobile, 3 col no desktop) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {% for game in games %}
+        <div class="bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-5 transition shadow-lg flex flex-col justify-between">
+            
+            <!-- Topo do Card: Liga e Estado do Jogo -->
+            <div class="flex items-center justify-between text-xs mb-4">
+                <span class="text-gray-400 font-medium">{{ game.league }}</span>
+                {% if game.is_live %}
+                <span class="bg-red-500/10 border border-red-500/20 text-red-500 font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    {{ game.time }}
+                </span>
+                {% else %}
+                <span class="bg-gray-800 text-gray-300 font-bold px-2.5 py-0.5 rounded-full">
+                    {{ game.time }}
+                </span>
+                {% endif %}
+            </div>
+
+            <!-- Meio: Equipas e Resultado -->
+            <div class="space-y-3 mb-6">
+                <div class="flex justify-between items-center text-white font-bold text-base">
+                    <span>{{ game.home_team }}</span>
+                    <span class="text-green-500 font-black text-lg">{{ game.home_score }}</span>
+                </div>
+                <div class="flex justify-between items-center text-white font-bold text-base">
+                    <span>{{ game.away_team }}</span>
+                    <span class="text-green-500 font-black text-lg">{{ game.away_score }}</span>
+                </div>
+            </div>
+
+            <!-- Botões de Odds Dinâmicos -->
+            <div class="grid grid-cols-3 gap-2 pt-2 border-t border-gray-800/80">
+                <button class="bg-black hover:bg-green-500 hover:text-black border border-gray-800 p-2.5 rounded-xl text-center transition group">
+                    <span class="block text-[10px] text-gray-500 group-hover:text-black font-extrabold">1</span>
+                    <span class="text-xs font-black text-white group-hover:text-black">{{ game.odds['1'] }}</span>
+                </button>
+                <button class="bg-black hover:bg-green-500 hover:text-black border border-gray-800 p-2.5 rounded-xl text-center transition group">
+                    <span class="block text-[10px] text-gray-500 group-hover:text-black font-extrabold">X</span>
+                    <span class="text-xs font-black text-white group-hover:text-black">{{ game.odds['X'] }}</span>
+                </button>
+                <button class="bg-black hover:bg-green-500 hover:text-black border border-gray-800 p-2.5 rounded-xl text-center transition group">
+                    <span class="block text-[10px] text-gray-500 group-hover:text-black font-extrabold">2</span>
+                    <span class="text-xs font-black text-white group-hover:text-black">{{ game.odds['2'] }}</span>
+                </button>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
